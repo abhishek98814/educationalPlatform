@@ -10,9 +10,9 @@ export default function Layout() {
     <div className="flex">
       <Sidebar isOpen={isOpen} />
       
-      <div className="flex-1 sm:ml-64">
+      <div className="flex-1">
         <Navbar toggleSidebar={() => setIsOpen(!isOpen)} />
-        <main className=" p-6 bg-gray-50 min-h-screen">
+        <main className=" p-6 mt-16 bg-gray-50 min-h-screen">
           <Outlet /> 
         </main>
       </div>
