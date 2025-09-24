@@ -16,11 +16,11 @@ const courseSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  instructor: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
-  },
+  // instructor: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "User",
+  //   required: true,
+  // },
   lessons: [
     {
       title: { type: String, required: true },

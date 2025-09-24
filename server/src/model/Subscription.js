@@ -28,12 +28,12 @@ const subscriptionSchema = new mongoose.Schema(
 
     level: {
       type: Number,
-      default: 1, // 1 = Basic, 2 = Standard, 3 = Premium
+      default: 1,
     },
 
     isActive: {
       type: Boolean,
-      default: true, // to deactivate plans if needed
+      default: true, 
     },
   },
   { timestamps: true }
