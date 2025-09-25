@@ -9,7 +9,7 @@ exports.createUser = async (req, res) => {
   try {
     const { userName, userEmail, userRole, userSubscriptionType, userPassword, userCourses } = req.body;
 
-    if (!userName || !userEmail || !userRole || !userSubscriptionType || !userPassword) {
+    if (!userName || !userEmail || !userRole || !userPassword) {
       return res.status(400).json({ message: "Please provide all required fields" });
     }
 
