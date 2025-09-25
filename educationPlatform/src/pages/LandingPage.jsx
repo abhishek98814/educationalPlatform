@@ -138,7 +138,7 @@ export default function SubscriptionLandingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
       {/* Navbar */}
-      <nav className="fixed top-0 w-full z-50 bg-gradient-to-r from-slate-900/95 via-blue-900/95 to-indigo-900/95 backdrop-blur-xl shadow-2xl border-b border-white/10">
+      {/* <nav className="fixed top-0 w-full z-50 bg-gradient-to-r from-slate-900/95 via-blue-900/95 to-indigo-900/95 backdrop-blur-xl shadow-2xl border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-20">
             <a href="/" className="flex items-center space-x-3 group">
@@ -199,7 +199,7 @@ export default function SubscriptionLandingPage() {
             </div>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Hero Section */}
       {/* <section className="pt-32 pb-20 px-6">

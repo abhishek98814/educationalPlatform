@@ -11,10 +11,10 @@ exports.createCourse = async (req, res) => {
     }
 
     // Optional: verify instructor exists and has correct role
-    // const instructorExists = await User.findById(instructor);
-    // if (!instructorExists || instructorExists.userRole !== "instructor") {
-    //   return res.status(400).json({ message: "Invalid instructor ID" });
-    // }
+    const instructorExists = await User.findById(instructor);
+    if (!instructorExists || instructorExists.userRole !== "instructor") {
+      return res.status(400).json({ message: "Invalid instructor ID" });
+    }
 
     const newCourse = await Course.create({
       title,

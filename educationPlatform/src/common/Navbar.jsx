@@ -1,8 +1,9 @@
-import { useState } from "react"
-import { Menu, X, User, Crown, Star, Zap } from "lucide-react"
+import { useState } from "react";
+import { Menu, X, Crown, Star, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+export default function LandingNavbar() {
+  const [isOpen, setIsOpen] = useState(false);
 
   const links = [
     { name: "Home", href: "/" },
@@ -10,17 +11,14 @@ export default function Navbar() {
     { name: "Plans", href: "/plans", special: true },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
-  ]
+  ];
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-gradient-to-r from-slate-900/95 via-blue-900/95 to-indigo-900/95 backdrop-blur-xl shadow-2xl border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a
-            href="/"
-            className="flex items-center space-x-3 group"
-          >
+          <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative">
               <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
               <div className="relative bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 rounded-full p-2">
@@ -35,14 +33,14 @@ export default function Navbar() {
                 PREMIUM LEARNING
               </div>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-8">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className={`relative font-semibold transition-all duration-300 group ${
                   link.special
                     ? "text-yellow-400 hover:text-yellow-300"
@@ -53,50 +51,35 @@ export default function Navbar() {
                 {link.special && (
                   <Star className="inline-block h-4 w-4 ml-1 text-yellow-400 animate-pulse" />
                 )}
-                <span className={`absolute left-0 -bottom-1 h-0.5 bg-gradient-to-r transition-all duration-300 group-hover:w-full ${
-                  link.special
-                    ? "from-yellow-400 to-orange-500 w-0"
-                    : "from-blue-400 to-indigo-400 w-0"
-                }`}></span>
-              </a>
+                <span
+                  className={`absolute left-0 -bottom-1 h-0.5 bg-gradient-to-r transition-all duration-300 group-hover:w-full ${
+                    link.special
+                      ? "from-yellow-400 to-orange-500 w-0"
+                      : "from-blue-400 to-indigo-400 w-0"
+                  }`}
+                ></span>
+              </Link>
             ))}
           </div>
 
-          {/* Right Side */}
+          {/* Right Side Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative px-6 py-3 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full text-white font-bold shadow-2xl hover:scale-105 transform transition-all duration-200 flex items-center space-x-2">
-                <Zap className="h-4 w-4" />
-                <span>Get Premium</span>
-              </div>
-            </button>
-            
-            <div className="relative group">
-              <button className="p-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-300 backdrop-blur-sm">
-                <User className="h-5 w-5 text-white" />
-              </button>
-              <div className="absolute top-full right-0 mt-2 w-48 bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto">
-                <div className="p-4 space-y-2">
-                  <a href="/profile" className="block px-3 py-2 text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition">
-                    Profile
-                  </a>
-                  <a href="/dashboard" className="block px-3 py-2 text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition">
-                    Dashboard
-                  </a>
-                  <a href="/settings" className="block px-3 py-2 text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition">
-                    Settings
-                  </a>
-                  <hr className="border-white/10 my-2" />
-                  <a href="/logout" className="block px-3 py-2 text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-lg transition">
-                    Sign Out
-                  </a>
-                </div>
-              </div>
-            </div>
+            <Link
+              to="/login"
+              className="px-6 py-3 bg-white text-gray-900 rounded-full font-bold shadow-lg hover:scale-105 transform transition-all duration-200"
+            >
+              Login
+            </Link>
+            <Link
+              to="/signup"
+              className="px-6 py-3 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full font-bold shadow-lg hover:scale-105 transform transition-all duration-200 flex items-center space-x-2"
+            >
+              <Zap className="h-4 w-4" />
+              <span>Sign Up</span>
+            </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -116,33 +99,34 @@ export default function Navbar() {
       >
         <div className="px-6 py-6 space-y-4">
           {links.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
-              className={`flex items-center space-x-3 font-semibold transition-all duration-300 py-2 ${
+              to={link.href}
+              className={`block font-semibold transition-all duration-300 py-2 ${
                 link.special
                   ? "text-yellow-400 hover:text-yellow-300"
                   : "text-white/90 hover:text-white"
               }`}
             >
-              <span>{link.name}</span>
-              {link.special && (
-                <Star className="h-4 w-4 text-yellow-400 animate-pulse" />
-              )}
-            </a>
+              {link.name}
+            </Link>
           ))}
-          
-          <div className="pt-4 border-t border-white/10">
-            <button className="w-full relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative w-full px-6 py-4 bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl text-white font-bold shadow-2xl hover:scale-105 transform transition-all duration-200 flex items-center justify-center space-x-2">
-                <Zap className="h-5 w-5" />
-                <span>Get Premium Access</span>
-              </div>
-            </button>
+          <div className="pt-4 border-t border-white/10 space-y-2">
+            <Link
+              to="/login"
+              className="block w-full px-6 py-3 bg-white text-gray-900 rounded-full font-bold text-center hover:scale-105 transform transition-all duration-200"
+            >
+              Login
+            </Link>
+            <Link
+              to="/signup"
+              className="block w-full px-6 py-3 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full font-bold text-center hover:scale-105 transform transition-all duration-200"
+            >
+              Sign Up
+            </Link>
           </div>
         </div>
       </div>
     </nav>
-  )
+  );
 }
