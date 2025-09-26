@@ -12,6 +12,16 @@ import CourseLandingPage from "./pages/CourseLandingPage";
 import PlansLandingPage from "./pages/PlanLandingPage";
 import AboutLandingPage from "./pages/AboutLanding";
 import ContactLandingPage from "./pages/ContactPage";
+import SchedulePage from "./pages/afterLogin/Schedula.jsx"
+import AchievementPage from "./pages/afterLogin/Achievement.jsx"
+import ProgressPage from './pages/afterLogin/Progress.jsx';
+import Community from './pages/afterLogin/Community.jsx';
+import Message from './pages/afterLogin/Message.jsx';
+import Notification from './pages/afterLogin/Notification.jsx';
+import SettingsPage from "./pages/afterLogin/SettingPage.jsx";
+import UserProfilePage from "./pages/afterLogin/UserProfile.jsx";
+
+
 
 function App() {
   return (
@@ -37,10 +47,17 @@ function App() {
             </PrivateRoute>
           }
         >
-          <Route index element={<DashboardPage />} />
-          <Route path="courses" element={<LoggedinUserCourse />} />
-          <Route path="subscriptions" element={<SubscriptionLandingPagee /> } />
-          <Route path="settings" element={<div>Settings Page</div>} />
+             <Route path="courses" element={<LoggedinUserCourse />} />
+        <Route path="schedule" element={<SchedulePage />} />
+        <Route path="achievements" element={<AchievementPage />} />
+        <Route path="progress" element={<ProgressPage/>} />
+        <Route path="community" element={<Community/>} />
+        <Route path="messages" element={< Message/>} />
+        <Route path="notifications" element={<Notification />} />
+        <Route path="settings" element={< SettingsPage/>} />
+        <Route path="profile" element={<UserProfilePage />} />
+        <Route path="subscriptions" element={<SubscriptionLandingPagee />} />
+
         </Route>
       </Routes>
     </BrowserRouter>

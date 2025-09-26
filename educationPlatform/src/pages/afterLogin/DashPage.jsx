@@ -172,32 +172,11 @@ const LearnHubDashboard = () => {
   ];
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* Sidebar */}
-      {/* <div className="w-80 bg-white/80 backdrop-blur-xl border-r border-white/20 shadow-2xl">
-        <div className="p-6 border-b border-gray-100">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            LearnHub
-          </h1>
-        </div>
-
-        <div className="p-6 border-b border-gray-100">
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
-              A
-            </div>
-            <div>
-              <h3 className="font-semibold text-gray-900">Alex Chen</h3>
-              <p className="text-sm text-blue-600 font-medium">Premium Student</p>
-            </div>
-          </div>
-        </div>
-
-      
-      </div> */}
+    <div className="flex my-16 h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    
 
       {/* Main Content */}
-      <div className="flex-1 overflow-y-auto p-8">
+      <div className="flex-1 py- overflow-y-auto p-8">
         {/* Welcome Section */}
         <div className="mb-8">
           <div className="bg-white/60 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20">
